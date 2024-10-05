@@ -1,0 +1,20 @@
+require('@nomiclabs/hardhat-ethers');
+require('dotenv').config();
+require('@nomiclabs/hardhat-etherscan'); // Add this line
+
+module.exports = {
+  solidity: "0.8.0",
+  networks: {
+    scrollSepolia: {
+      url: "https://scroll-sepolia-rpc.scroll.io/l2",
+      accounts: [process.env.PRIVATE_KEY],
+      chainId: 534351,
+    },
+  },
+  etherscan: {
+    apiKey: {
+      scrollSepolia: process.env.ETHERSCAN_API_KEY // Add your Etherscan API key for verification
+    },
+  },
+};
+
